@@ -46,3 +46,15 @@ dat <- gen.data(alpha = 1, beta1 = 1, beta2 = 0.5, n = 10000)
 ```
 
 The data is based on an assumed instrument-exposure effect size of 1 (`alpha = 1`), exposure-outcome effect size of 1 (`beta1 = 1`) and violation of exclusion restriction assumption (i.e., `beta2` with a non-zero value). `dat` is a (`n x 3') data frame with exposure `X`, outcome `Y` and instrument candidate `Z`.
+
+In order to generate a user-specified Y-Y plot R^2 cutoff, we need to use the `r2.cutoff` function which defaults to using the 5% quantile of the empirical R^2 distribution across 1000 (default) replicates. We need to specify the instrument-exposure effect size (`alpha`), noise level for exposure equation (`sigmaX2`), noise level for outcome equation (`sigmaY2`), covariance between the exposure and outcome noise (`sigmaXY`) and sample size (`n`). As an example, we can use
+```
+cutoff <- r2.cutoff(alpha = 1, sigmaX2 = 1, sigmaY2 = 1, sigmaXY = 0.1, n = 10000)
+print(cutoff)
+```
+which yields cutoff to be `0.984603`. Finally, we can use the yy.r2 function:
+```
+res <- yy.r2(dat$X, dat$Y, dat$Z)
+print(res)
+```
+and obtain the Y-Y plot R^2 for the simulated data to be `0.8882123`. Since this value is smaller than that of the cutoff `0.984603`. It indicates sign of violation of the instrumental variable assumptions.
