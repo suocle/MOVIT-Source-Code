@@ -11,7 +11,7 @@ This repository provides a demonstration on how to use the MOVIT `R` source code
 
 The source code has been tested on Microsoft's Windows 10 operating system and Linux (Ubuntu 18.04). The source code should be compatible with Windows, Mac, and Linux operating systems.
 
-Before using the DrFARM source code, users should have `R` version 4.3.0 or higher, and two packages installed.
+Before using the MOVIT source code, users should have `R` version 4.3.0 or higher, and two packages installed.
 
 ### Installation  
 
