@@ -28,9 +28,6 @@ We first load all the source code dependencies:
 ```
 library(ivreg)
 library(mvnfast)
-library(psych)
-library(remMap)
-#library(mvnfast) #for replicating simulation II only
 ```
 
 and the source code containing all the main functions:
